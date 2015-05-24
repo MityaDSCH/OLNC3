@@ -3,20 +3,21 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-$background-color: desaturate(#F8ECD2, 20%);
+@import "compass";
+@import "compass/css3/box-shadow";
 
 body {
+    
     
     margin: 0;
     font-family: "Martel Sans", "Lucida Sans";
     border: 10px solid #576182;
-    background: $background-color;
+    @include box-shadow(black 0 0 12px 3px inset);
     
 }
  
 header {
     
-    background: $background-color;
     margin: 10vh 0 10vh 0;
     width: 90vw;
     height: 40vw;

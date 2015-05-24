@@ -2,30 +2,31 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 8, ../sass/screen.scss */
+/* line 9, ../sass/screen.scss */
 body {
   margin: 0;
   font-family: "Martel Sans", "Lucida Sans";
   border: 10px solid #576182;
-  background: #f3ead7;
+  -moz-box-shadow: black 0 0 12px 3px inset;
+  -webkit-box-shadow: black 0 0 12px 3px inset;
+  box-shadow: black 0 0 12px 3px inset;
 }
 
-/* line 17, ../sass/screen.scss */
+/* line 19, ../sass/screen.scss */
 header {
-  background: #f3ead7;
   margin: 10vh 0 10vh 0;
   width: 90vw;
   height: 40vw;
 }
 
-/* line 26, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 header img {
   display: block;
   position: relative;
   width: 100%;
 }
 
-/* line 34, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 main {
   margin-left: 5vw;
   width: 84vw;
