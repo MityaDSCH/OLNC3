@@ -1,0 +1,41 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+$background-color: desaturate(#F8ECD2, 20%);
+
+body {
+    
+    margin: 0;
+    font-family: "Martel Sans", "Lucida Sans";
+    border: 10px solid #576182;
+    background: $background-color;
+    
+}
+ 
+header {
+    
+    background: $background-color;
+    margin: 10vh 0 10vh 0;
+    width: 90vw;
+    height: 40vw;
+    
+}
+
+header img {
+    
+    display: block;
+    position: relative;
+    width: 100%;
+
+}
+
+main {
+    margin-left: 5vw;
+    width: 84vw;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 180%;
+}
+    
