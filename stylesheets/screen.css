@@ -6,15 +6,15 @@
 body {
   margin: 0;
   font-family: "Martel Sans", "Lucida Sans";
-  border: 10px solid #576182;
-  -moz-box-shadow: black 0 0 12px 3px inset;
-  -webkit-box-shadow: black 0 0 12px 3px inset;
-  box-shadow: black 0 0 12px 3px inset;
+  border: 3vw solid #576182;
+  -moz-box-shadow: black 0 0 4vw 1vw inset;
+  -webkit-box-shadow: black 0 0 4vw 1vw inset;
+  box-shadow: black 0 0 4vw 1vw inset;
 }
 
 /* line 19, ../sass/screen.scss */
 header {
-  margin: 10vh 0 10vh 0;
+  margin: 10vh 0 7vh 0;
   width: 90vw;
   height: 40vw;
 }
@@ -27,9 +27,16 @@ header img {
 }
 
 /* line 35, ../sass/screen.scss */
+.divider {
+  height: 3vh;
+  width: 170px;
+  margin: 7vh auto 7vh auto;
+}
+
+/* line 43, ../sass/screen.scss */
 main {
-  margin-left: 5vw;
-  width: 84vw;
+  margin-left: 7vw;
+  width: 80vw;
   text-align: justify;
   font-size: 16px;
   line-height: 180%;
