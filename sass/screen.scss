@@ -1,7 +1,5 @@
 
 @import "compass";
-@import "compass/css3/box-shadow";
-
 
 @font-face {
     font-family: 'polyregular';
@@ -18,7 +16,10 @@
 
 @import url(http://fonts.googleapis.com/css?family=Oswald|Lato:700);
 
+
 $backgroundBorder: 16px;
+$nav-height: 8vh;
+$body-width: calc(100% - #{$backgroundBorder*2});
 
 body {
     
@@ -28,22 +29,39 @@ body {
     
 }
 
+#nav-wrap {
+    
+    position: fixed;
+    height: $nav-height*2;
+    width: $body-width;
+    margin: 0 $backgroundBorder $backgroundBorder;
+    
+    overflow: hidden;
+    
+}
+
 nav {
     
-    display: flex;
-    justify-content: space-around;
+    @include display-flex;
+    @include justify-content(space-around);
+    
+    opacity: 1;
     
     position: fixed;
     z-index: 5;
-    margin:  0  $backgroundBorder $backgroundBorder;
-    width: calc(100% - #{$backgroundBorder*2});
-    height: 8vh;
+    width: $body-width;
+    height: $nav-height;
 
     background: #444;
     color: gray;
-    @include box-shadow(black 0 8px 25px -2px);
+    @include box-shadow(black 0 0px 25px 0);
+
+    @include transition(1s);
+    @include transform(translateY(0), translate3d(0,0,0));
+    @include transition-timing-function(ease-in-out);
 
     #nav-image {
+        
         background-image: url("../images/OLNC-logo.gif");
         background-repeat: no-repeat;
         background-size: contain;
@@ -53,11 +71,23 @@ nav {
 
     }
 
-    p:hover {
-        color: white;
+    p {
+        
+        margin: $nav-height/4 0;
+        
+        &:hover {
+            color: white;
+        }
     }
 
-}
+    &.hidden {
+        
+        opacity: 0;
+        @include transform(translateY(-$nav-height));
+        
+    }
+
+} 
 
 .background {
 
@@ -79,7 +109,7 @@ header {
     
     margin: 0 0 0 $backgroundBorder*.8;
     padding: 5vh 0 4vh;
-    width: calc(100% - #{$backgroundBorder*2});
+    width: $body-width;
     height: 25vh;
     img {
         
@@ -93,10 +123,10 @@ header {
 section {
     
     margin: 5vh auto auto;
-    width: calc(100% - #{$backgroundBorder*2});
+    width: $body-width;
     padding: 0 0 5vh;
     text-align: justify;
-    font-size: 16px;
+    font-size: 19px;
     line-height: 180%;
     p {margin: 0 0;}
     
@@ -131,11 +161,12 @@ section {
     
     hr {
         
+        position: relative;
         opacity: .5;
         border: 0;
         height: 1px;
+        z-index: 0;
         @include background-image(linear-gradient(to right, #DDD, #333, #DDD));
-//        @include background-image(linear-gradient(to bottom right, white, #dddddd));
         
     }
     
