@@ -37,10 +37,10 @@ var main = function() {
         
     });
     
-    //scrolls window to appropriate main element when corresponding nav
-    //is clicked.
-    $('.nav-text').click(function(){
-
+    //nav-bar item triggers
+    $(".nav-text").click(function(){
+        
+        //Scrolling triggers for home, services, and about
         if ($(this).attr('id') == "nav-home") {
             console.log('hi');
             $(window).scrollTo(0, {
@@ -62,8 +62,22 @@ var main = function() {
                 over: {top:-.01}
             });
         }
+        
+        //display modal for contact
+        if ($(this).attr('id') == "nav-contact") {
+            $('#modal').removeClass("hidden");
+            $('#overlay').removeClass("hidden");
+        }
 
     });  
+    
+    //remove modal
+    $("#overlay").click(function() {
+         if (!$('#overlay').hasClass("hidden") && !$('#modal').hasClass("hidden")) {
+            $('#overlay').addClass("hidden");
+            $('#modal').addClass("hidden");
+        }
+    });
     
 };
 
