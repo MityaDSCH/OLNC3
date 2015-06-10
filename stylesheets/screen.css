@@ -12,19 +12,40 @@ body {
   background: #5f657a;
 }
 
+#nav-wrap {
+  position: fixed;
+  height: 16vh;
+  width: calc(100% - 32px);
+  margin: 0 16px 16px;
+  overflow: hidden;
+}
+
 nav {
+  display: -webkit-flex;
   display: flex;
+  -webkit-justify-content: space-around;
   justify-content: space-around;
+  opacity: 1;
   position: fixed;
   z-index: 5;
-  margin: 0 16px 16px;
   width: calc(100% - 32px);
   height: 8vh;
   background: #444;
   color: gray;
-  -moz-box-shadow: black 0 8px 25px -2px;
-  -webkit-box-shadow: black 0 8px 25px -2px;
-  box-shadow: black 0 8px 25px -2px;
+  -moz-box-shadow: black 0 0px 25px 0;
+  -webkit-box-shadow: black 0 0px 25px 0;
+  box-shadow: black 0 0px 25px 0;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -moz-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
 }
 nav #nav-image {
   background-image: url("../images/OLNC-logo.gif");
@@ -34,8 +55,18 @@ nav #nav-image {
   margin: 1vh 0;
   font-size: 30px;
 }
+nav p {
+  margin: 2vh 0;
+}
 nav p:hover {
   color: white;
+}
+nav.hidden {
+  opacity: 0;
+  -moz-transform: translateY(-8vh);
+  -ms-transform: translateY(-8vh);
+  -webkit-transform: translateY(-8vh);
+  transform: translateY(-8vh);
 }
 
 .background {
@@ -69,7 +100,7 @@ section {
   width: calc(100% - 32px);
   padding: 0 0 5vh;
   text-align: justify;
-  font-size: 16px;
+  font-size: 19px;
   line-height: 180%;
 }
 section p {
@@ -96,9 +127,11 @@ section p {
   padding-top: 2vh;
 }
 .serv-text hr {
+  position: relative;
   opacity: .5;
   border: 0;
   height: 1px;
+  z-index: 0;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RkZGRkZCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMzMzMzMzIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGRkZGRkIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #dddddd), color-stop(50%, #333333), color-stop(100%, #dddddd));
