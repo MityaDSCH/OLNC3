@@ -5,7 +5,7 @@ var main = function() {
         var wScroll = $(this).scrollTop();
         
         //navbar hiding 
-        if (wScroll > $('#home-section').offset().top) {
+        if (wScroll > $('#home-section').offset().top || $(window).width() > 1100) {
             $("nav").removeClass("hidden");
         }
         else {

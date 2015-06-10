@@ -23,10 +23,23 @@ body {
 
 #nav-wrap {
   position: fixed;
-  height: 16vh;
-  width: calc(100% - 32px);
-  margin: 0 16px 16px;
+  height: calc(8vh + 25px);
+  width: 92%;
+  margin: 0 4% 4%;
   overflow: hidden;
+}
+@media screen and (min-width: 800px) {
+  #nav-wrap {
+    width: 86%;
+    margin: 0 7%;
+  }
+}
+@media screen and (min-width: 1100px) {
+  #nav-wrap {
+    margin: 25vh 3%;
+    height: 50%;
+    width: 16%;
+  }
 }
 
 nav {
@@ -34,11 +47,13 @@ nav {
   display: flex;
   -webkit-justify-content: space-around;
   justify-content: space-around;
+  -webkit-align-items: center;
+  align-items: center;
   opacity: 1;
   position: fixed;
   z-index: 5;
-  width: calc(100% - 32px);
-  height: 8vh;
+  width: inherit;
+  height: 15vh;
   background: #444;
   color: lightgray;
   font-family: 'Lato', sans-serif, 'polyregular';
@@ -58,13 +73,13 @@ nav {
   transition-timing-function: ease-in-out;
 }
 nav a {
-  margin: 2vh 0;
   color: gray;
   text-decoration: none;
   -moz-transition: 1s;
   -o-transition: 1s;
   -webkit-transition: 1s;
   transition: 1s;
+  margin: 0 0 5px;
 }
 nav a.active {
   color: white;
@@ -75,6 +90,45 @@ nav.hidden {
   -ms-transform: translateY(-8vh);
   -webkit-transform: translateY(-8vh);
   transform: translateY(-8vh);
+}
+@media screen and (min-height: 300px) {
+  nav {
+    height: 12vh;
+  }
+}
+@media screen and (min-height: 450px) {
+  nav {
+    height: 8vh;
+  }
+}
+@media screen and (min-width: 600px) {
+  nav {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 600px) {
+  nav {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  nav {
+    background: none;
+    height: 50%;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -moz-box-shadow: 0 0 0 0;
+    -webkit-box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+  }
+  nav a {
+    color: black;
+    width: 75%;
+    margin-left: 25%;
+  }
+  nav a.active {
+    color: white;
+  }
 }
 
 #overlay {
@@ -102,6 +156,12 @@ nav.hidden {
 
 #modal {
   position: fixed;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-content: space-around;
+  align-content: space-around;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
   width: 70%;
   margin: 0 15%;
   background: #fefcf7;
@@ -114,10 +174,10 @@ nav.hidden {
   -ms-transform: translateY(40vh);
   -webkit-transform: translateY(40vh);
   transform: translateY(40vh);
-  -moz-transition: 0.7s;
-  -o-transition: 0.7s;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -moz-transition: 1.5s;
+  -o-transition: 1.5s;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
   -moz-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
   -webkit-transition-timing-function: ease-in-out;
@@ -126,6 +186,9 @@ nav.hidden {
 }
 #modal.hidden {
   opacity: 0;
+  -moz-box-shadow: black 0 0 0 0;
+  -webkit-box-shadow: black 0 0 0 0;
+  box-shadow: black 0 0 0 0;
   -moz-transform: translateY(-20vh);
   -ms-transform: translateY(-20vh);
   -webkit-transform: translateY(-20vh);
@@ -134,6 +197,20 @@ nav.hidden {
 #modal a {
   text-decoration: none;
   color: #333;
+}
+@media screen and (min-width: 800px) {
+  #modal {
+    width: 50%;
+    margin-left: 25%;
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #modal {
+    width: 30%;
+    margin-left: 35%;
+    font-size: 20px;
+  }
 }
 
 em {
@@ -144,24 +221,32 @@ em {
   position: relative;
   z-index: -2;
   background: #fefcf7;
-  margin: 0 16px 0;
+  margin: 0 4%;
+  width: 92%;
   -moz-box-shadow: black 0 0 25px 5px;
   -webkit-box-shadow: black 0 0 25px 5px;
   box-shadow: black 0 0 25px 5px;
+}
+@media screen and (min-width: 800px) {
+  .background {
+    width: 86%;
+    margin: 0 7%;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .background {
+    width: 75%;
+    margin: 0 3% 0 22%;
+  }
 }
 .background:first-of-type {
   -webkit-margin-top: 0;
 }
 
-#home-section {
-  margin-top: 0;
-}
-
 header {
-  margin: 0 0 0 12.8px;
-  padding: 5vh 0 4vh;
-  width: calc(100% - 32px);
-  height: 25vh;
+  margin: auto;
+  padding-top: 3vh;
+  width: inherit;
 }
 header img {
   display: block;
@@ -172,14 +257,29 @@ section {
   position: relative;
   z-index: -2;
   margin: 5vh auto auto;
-  width: calc(100% - 32px);
+  width: 92%;
   padding: 0 0 5vh;
   text-align: justify;
-  font-size: 17px;
+  font-size: 14px;
   line-height: 180%;
 }
 section p {
   margin: 0 0;
+}
+@media screen and (min-height: 350px) {
+  section {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 600px) {
+  section {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 800px) {
+  section {
+    font-size: 20px;
+  }
 }
 
 .divider {
@@ -221,6 +321,5 @@ section p {
 .organizations li {
   margin: 1.7em 0;
   text-align: justify;
-  font-size: 16px;
   line-height: 1.3em;
 }
