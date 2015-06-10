@@ -1,8 +1,7 @@
 var main = function() {
     
     $(window).scroll(function() {
-        
-        
+    
         var wScroll = $(this).scrollTop();
         
         //navbar hiding 
@@ -23,11 +22,13 @@ var main = function() {
             $('#nav-services').addClass('active');
             lastUpdated = 'services';
         }
-        else if (wScroll > aboutHeight && lastUpdated != 'background') {
+        
+        else if (wScroll > aboutHeight && lastUpdated != 'about') {
             clearActiveNav();
             $('#nav-about').addClass('active');
-            lastUpdated = 'background';
+            lastUpdated = 'about';
         }
+        
         else {
             clearActiveNav();
             $('#nav-home').addClass('active');
@@ -42,15 +43,24 @@ var main = function() {
 
         if ($(this).attr('id') == "nav-home") {
             console.log('hi');
-            $(window).scrollTo(0, 1100);
+            $(window).scrollTo(0, {
+                duration: 1100, 
+                over: {top:-.01}
+            });
         }
 
         if ($(this).attr('id') == "nav-services") {
-            $(window).scrollTo($('#services-section'), 1100);
+            $(window).scrollTo($('#services-section'), {
+                duration: 1100, 
+                over: {top:-.01}
+            });
         }
 
         if ($(this).attr('id') == "nav-about") {
-            $(window).scrollTo($('#background-about'), 1100);
+            $(window).scrollTo($('#about-section'), {
+                duration: 1100, 
+                over: {top:-.01}
+            });
         }
 
     });  

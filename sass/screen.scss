@@ -56,22 +56,13 @@ nav {
 
     background: #444;
     color: lightgray;
+    font-family: 'Lato', sans-serif, 'polyregular';
+    
     @include box-shadow(black 0 0px 25px 0);
 
     @include transition(1s);
     @include transform(translateY(0), translate3d(0,0,0));
     @include transition-timing-function(ease-in-out);
-
-    #nav-image {
-        
-        background-image: url("../images/OLNC-logo.gif");
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 25vw;
-        margin: 1vh 0;
-        font-size: 30px;
-
-    }
 
     a {
         
@@ -81,10 +72,6 @@ nav {
         @include transition(1s);
         
         &.active {
-            color: white;
-        }
-        
-        &:hover {
             color: white;
         }
         
@@ -142,7 +129,7 @@ section {
     width: $body-width;
     padding: 0 0 5vh;
     text-align: justify;
-    font-size: 19px;
+    font-size: 17px;
     line-height: 180%;
     p {margin: 0 0;}
     
@@ -184,6 +171,18 @@ section {
         z-index: -1;
         @include background-image(linear-gradient(to right, #DDD, #333, #DDD));
         
+    }
+    
+}
+
+.organizations {
+    padding: 0 5vw;
+    
+    li {
+        margin: 1.7em 0;
+        text-align: justify;
+        font-size: 16px;
+        line-height: 1.3em;
     }
     
 }
