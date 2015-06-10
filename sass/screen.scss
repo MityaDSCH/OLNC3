@@ -23,6 +23,8 @@ $body-width: calc(100% - #{$backgroundBorder*2});
 
 body {
     
+    position: relative;
+    z-index: -2;
     margin: 0;
     font-family: "polyregular";
     background: #5f657a;
@@ -53,7 +55,7 @@ nav {
     height: $nav-height;
 
     background: #444;
-    color: gray;
+    color: lightgray;
     @include box-shadow(black 0 0px 25px 0);
 
     @include transition(1s);
@@ -71,13 +73,21 @@ nav {
 
     }
 
-    p {
+    a {
         
         margin: $nav-height/4 0;
+        color: gray;
+        text-decoration: none;
+        @include transition(1s);
+        
+        &.active {
+            color: white;
+        }
         
         &:hover {
             color: white;
         }
+        
     }
 
     &.hidden {
@@ -91,6 +101,9 @@ nav {
 
 .background {
 
+    position: relative;
+    z-index: -2;
+    
     background: #fefcf7;
     margin: 0 $backgroundBorder 0;
     @include box-shadow(black 0 0 25px 5px);
@@ -121,6 +134,9 @@ header {
 }
 
 section {
+    
+    position: relative;
+    z-index: -2;
     
     margin: 5vh auto auto;
     width: $body-width;
@@ -165,7 +181,7 @@ section {
         opacity: .5;
         border: 0;
         height: 1px;
-        z-index: 0;
+        z-index: -1;
         @include background-image(linear-gradient(to right, #DDD, #333, #DDD));
         
     }
