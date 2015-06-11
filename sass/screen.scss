@@ -97,6 +97,10 @@ nav {
         @include transition(1s);
         margin: 0 0 5px;
         
+        &:hover {
+            cursor: pointer;
+        }
+        
         &.active {
             color: white;
         }
