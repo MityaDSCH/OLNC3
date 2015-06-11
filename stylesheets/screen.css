@@ -323,3 +323,9 @@ section p {
   text-align: justify;
   line-height: 1.3em;
 }
+
+#author-credit {
+  height: 30px;
+  font-family: 'Lato', 'polyregular', 'Arial';
+  text-align: center;
+}
