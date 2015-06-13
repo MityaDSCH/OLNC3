@@ -1,7 +1,7 @@
 var main = function() {
     
-    if ($(window).width() >= 1100) {
-        $("nav").removeClass('hidden');
+    if ($(window).width() >= 1080) {
+        $('nav').removeClass('hidden');
     }
     
     $(window).scroll(function() {
@@ -9,10 +9,11 @@ var main = function() {
         var wScroll = $(this).scrollTop();
         
         //navbar hiding 
-        if (wScroll > $('#home-section').offset().top || $(window).width() >= 1100) {
+        if (wScroll > $('#home-section').offset().top) {
             $("nav").removeClass("hidden");
         }
-        else {
+        
+        else if ($(window).width() < 1080) {
             $("nav").addClass("hidden");
         }
         
