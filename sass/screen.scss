@@ -73,7 +73,6 @@ body {
         margin: 25vh 9vw;
         height: 50vh;
         width: 9vw;
-
     }
     
 }
@@ -110,7 +109,6 @@ nav {
         
         &:hover {
             cursor: pointer;
-            color: #444;
         }
         
         &.active {
@@ -160,6 +158,9 @@ nav {
             
             &.active {
                 color: white;
+            }
+            &:hover {
+                color: #444;
             }
         }
         
