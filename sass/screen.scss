@@ -153,12 +153,15 @@ nav {
             color: black;
             width: 75%;
             
-            &.active {
+            
+            &:hover {
+                @include transform(translateX(.5vw));
+            }
+            
+            &.active{
                 color: white;
             }
-            &:hover {
-                color: #444;
-            }
+            
         }
         
         &:after{
