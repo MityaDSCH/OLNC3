@@ -161,6 +161,26 @@ nav {
             }
         }
         
+        &:after{
+          content:""; 
+          background: black; 
+          position: absolute; 
+          bottom: 0; 
+          left: 35%;
+          width: 30%;
+          height: 1px;
+        }
+        
+        &:before{
+          content:""; 
+          background: black; 
+          position: absolute; 
+          top: 0; 
+          left: 35%;
+          width: 30%;
+          height: 1px;
+        }
+        
     }
 
 } 
