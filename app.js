@@ -1,6 +1,6 @@
 var main = function() {
     
-    if ($(window).width() >= 1080) {
+    if ($(window).width() >= 1060) {
         $('nav').removeClass('hidden');
     }
     
@@ -68,10 +68,12 @@ var main = function() {
             });
         }
         
-        //display modal for contact
+        //slide out nav options and slide in contact info
         if ($(this).attr('id') == "nav-contact") {
-            $('#modal').removeClass("hidden");
-            $('#overlay').removeClass("hidden");
+            alert('hi')
+            $(".nav-text").each(function() {
+                $(this).toggle('animate fadeOutLeft slideOutLeft');
+            });
         }
 
     });  
