@@ -70,10 +70,43 @@ var main = function() {
         
         //slide out nav options and slide in contact info
         if ($(this).attr('id') == "nav-contact") {
-            alert('hi')
-            $(".nav-text").each(function() {
-                $(this).toggle('animate fadeOutLeft slideOutLeft');
+
+
+            $(".nav-text").each(function(i) {
+
+                var navElement = $(this);
+
+                //add fadeOutLeft animate.css tag the nav element, staggered by 150ms
+                setTimeout(function(){
+                    navElement.addClass('animated fadeOutLeft');
+                }, 150*(i+1));
+
+                //display: none the element after 1500ms
+                setTimeout(function() {
+                    navElement.hide();
+                }, 1500)
+                
             });
+
+            //begin animating in the contact elements after 1500ms
+            setTimeout(function(){
+
+                $($(".contact-text").get().reverse()).each(function(i){
+
+                    var contactElement = $(this);
+
+                    console.log(contactElement.text);
+
+                    contactElement.addClass('animated fadeInLeft')
+
+                    setTimeout(function(i){
+                        contactElement.show();
+                    }, 150*(i+1));
+
+                })
+
+            }, 1500);
+            
         }
 
     });  
