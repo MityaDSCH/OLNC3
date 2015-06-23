@@ -111,14 +111,6 @@ var main = function() {
 
     });  
     
-    //remove modal
-    $("#overlay").click(function() {
-         if (!$('#overlay').hasClass("hidden") && !$('#modal').hasClass("hidden")) {
-            $('#overlay').addClass("hidden");
-            $('#modal').addClass("hidden");
-        }
-    });
-    
 };
 
 function clearActiveNav() {
