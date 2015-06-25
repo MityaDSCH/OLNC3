@@ -47,7 +47,6 @@ var main = function() {
         
         //Scrolling triggers for home, services, and about
         if ($(this).attr('id') == "nav-home") {
-            console.log('hi');
             $(window).scrollTo(0, {
                 duration: 1100, 
                 over: {top:-.01}
