@@ -1,33 +1,9 @@
 
 @import "compass";
 
-@font-face {
-    font-family: 'polyregular';
-    src: url('fonts/poly-regular-webfont.eot');
-    src: url('fonts/poly-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/poly-regular-webfont.woff2') format('woff2'),
-         url('fonts/poly-regular-webfont.woff') format('woff'),
-         url('fonts/poly-regular-webfont.ttf') format('truetype'),
-         url('fonts/poly-regular-webfont.svg#polyregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+@import url(http://fonts.googleapis.com/css?family=Poly:400,400italic);
 
-}
-
-@font-face {
-    font-family: 'polyregular';
-    src: url('fonts/poly-italic-webfont.eot');
-    src: url('fonts/poly-italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/poly-italic-webfont.woff2') format('woff2'),
-         url('fonts/poly-italic-webfont.woff') format('woff'),
-         url('fonts/poly-italic-webfont.ttf') format('truetype'),
-         url('fonts/poly-italic-webfont.svg#polyitalic') format('svg');
-    font-weight: normal;
-    font-style: italic;
-    
-}
-
-@import url(http://fonts.googleapis.com/css?family=Oswald|Lato:700);
+@import url(http://fonts.googleapis.com/css?family=Lato:700);
 
 
 $background-border: 4%;
@@ -40,7 +16,7 @@ body {
     position: relative;
     z-index: -2;
     margin: 0;
-    font-family: "polyregular";
+    font-family: "Poly";
     background: #5f657a;
     
 }
@@ -92,7 +68,7 @@ nav {
 
     background: #444;
     color: lightgray;
-    font-family: 'Lato', sans-serif, 'polyregular';
+    font-family: 'Lato', sans-serif, 'Poly';
     
     @include box-shadow(black 0 0px 25px 0);
 
@@ -215,7 +191,7 @@ nav {
     margin: 0 15%;
     
     background: $background-color;
-    font-family: 'Lato', 'polyregular';
+    font-family: 'Lato', 'Poly';
     text-align: center;
     
     @include box-shadow(black 0 0 20px 2px);
@@ -342,7 +318,7 @@ section {
 
 .header {
     
-    font-family: 'Lato', sans-serif, 'polyregular';
+    font-family: 'Lato', sans-serif, 'Poly';
     font-size: 36px;
     padding-top: 3vh;
     text-align: center;
@@ -385,7 +361,7 @@ section {
 
 #author-credit {
     height: 30px;
-    font-family: 'Lato', 'polyregular', 'Arial';
+    font-family: 'Lato', 'Poly', 'Arial';
     text-align: center;
 }
 
