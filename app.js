@@ -20,6 +20,7 @@ var main = function() {
         //navbar text hilighting
         var servicesHeight = $('#services-section').offset().top - window.innerHeight/3;
         var aboutHeight = $('#about-section').offset().top - window.innerHeight/3;
+        var contactHeight = $('#contact-section').offset().top - window.innerHeight/1.3;
         var lastUpdated = 'home';
 
         if (wScroll > servicesHeight && wScroll < aboutHeight && lastUpdated != 'services') {
@@ -28,10 +29,16 @@ var main = function() {
             lastUpdated = 'services';
         }
         
-        else if (wScroll > aboutHeight && lastUpdated != 'about') {
+        else if (wScroll > aboutHeight && wScroll < contactHeight && lastUpdated != 'about') {
             clearActiveNav();
             $('#nav-about').addClass('active');
             lastUpdated = 'about';
+        }
+
+        else if (wScroll > aboutHeight && lastUpdated != 'contact') {
+            clearActiveNav();
+            $('#nav-contact').addClass('active');
+            lastUpdated = 'contact';
         }
         
         else {
@@ -67,62 +74,23 @@ var main = function() {
                 over: {top:-.01}
             });
         }
-        
-        //slide out nav options and slide in contact info
+
         if ($(this).attr('id') == "nav-contact") {
-
-
-            $(".nav-text").each(function(i) {
-
-                var navElement = $(this);
-
-                //add fadeOutLeft animate.css tag the nav element, staggered by 150ms
-                setTimeout(function(){
-                    navElement.addClass('animated fadeOutLeft');
-                }, 150*(i+1));
-
-                //display: none the element after 1500ms
-                setTimeout(function() {
-                    navElement.hide();
-                }, 1500)
-                
+            $(window).scrollTo($('#contact-section'), {
+                duration: 1100, 
+                over: {top:-.01}
             });
-
-            //begin animating in the contact elements after 1500ms
-            setTimeout(function(){
-
-                $($(".contact-text").get().reverse()).each(function(i){
-
-                    var contactElement = $(this);
-
-                    console.log(contactElement.text);
-
-                    contactElement.addClass('animated fadeInLeft')
-
-                    setTimeout(function(i){
-                        contactElement.show();
-                    }, 150*(i+1));
-
-                })
-
-            }, 1500);
-            
         }
-
+        
     });  
     
 };
 
 function clearActiveNav() {
-    if ($('#nav-home').hasClass('active')){
-        $('#nav-home').removeClass('active');
-    }
-    if ($('#nav-services').hasClass('active')){
-        $('#nav-services').removeClass('active');
-    }
-    if ($('#nav-about').hasClass('active')){
-        $('#nav-about').removeClass('active');
-    }
+    $('#nav-home').removeClass('active');
+    $('#nav-services').removeClass('active');
+    $('#nav-about').removeClass('active');
+    $('#nav-contact').removeClass('active');
 }
 
 $(document).ready(main);
