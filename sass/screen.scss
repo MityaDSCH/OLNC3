@@ -1,35 +1,6 @@
 
 @import "compass";
 
-@font-face {
-    font-family: 'polyregular';
-    src: url('fonts/poly-regular-webfont.eot');
-    src: url('fonts/poly-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/poly-regular-webfont.woff2') format('woff2'),
-         url('fonts/poly-regular-webfont.woff') format('woff'),
-         url('fonts/poly-regular-webfont.ttf') format('truetype'),
-         url('fonts/poly-regular-webfont.svg#polyregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'polyregular';
-    src: url('fonts/poly-italic-webfont.eot');
-    src: url('fonts/poly-italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/poly-italic-webfont.woff2') format('woff2'),
-         url('fonts/poly-italic-webfont.woff') format('woff'),
-         url('fonts/poly-italic-webfont.ttf') format('truetype'),
-         url('fonts/poly-italic-webfont.svg#polyitalic') format('svg');
-    font-weight: normal;
-    font-style: italic;
-    
-}
-
-@import url(http://fonts.googleapis.com/css?family=Oswald|Lato:700);
-
-
 $background-border: 4%;
 $background-color: #fefcf7;
 $nav-height: 8vh;
