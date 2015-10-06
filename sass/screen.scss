@@ -365,9 +365,13 @@ section {
             font-size: 54px;
         }
     }
+    a {
+        text-decoration: none;
+    }
     p {
         font-size: 15px;
         letter-spacing: 2px;
+        color: black;
 
         @media screen and (min-width: 400px) {
             font-size: 17px;
