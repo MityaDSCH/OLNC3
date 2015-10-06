@@ -11,7 +11,7 @@ body {
     position: relative;
     z-index: -2;
     margin: 0;
-    font-family: "polyregular";
+    font-family: "Poly";
     background: #5f657a;
     
 }
@@ -69,7 +69,7 @@ nav {
     background: rgba(68, 68, 68, .98);
     border-bottom: 3px solid #999;
     color: lightgray;
-    font-family: 'Lato', sans-serif, 'polyregular';
+    font-family: 'Lato', sans-serif, 'Poly';
     
     @include box-shadow(black 0 0px 25px 0);
 
@@ -167,10 +167,6 @@ nav {
 
 } 
 
-.contact-text {
-    font-size: 18px;
-}
-
 em {
     font-style: italic;
 }
@@ -239,8 +235,8 @@ section {
     z-index: -2;
     
     margin: 5vh auto auto;
-    width: $body-width;
     padding: 0 0 5vh;
+    width: $body-width;
     text-align: justify;
     font-size: 14px;
     line-height: 180%;
@@ -273,7 +269,7 @@ section {
 
 .header {
     
-    font-family: 'Lato', sans-serif, 'polyregular';
+    font-family: 'Lato', sans-serif, 'Poly';
     font-size: 36px;
     padding-top: 3vh;
     text-align: center;
@@ -311,27 +307,94 @@ section {
         text-align: justify;
         line-height: 1.3em;
     }
+
+    #naclnc-logo {
+        max-width: 100%;
+    }
     
 }
 
-
-#contact-div{
-    padding-top: 5vh; 
-    text-align: center;
-    a {
-        text-decoration: none;
-        color: black;
-    }
-
+#contact-section {
+    margin-top: 5vh;
+    overflow: hidden;
+    display: flex;
 }
 
+#contact-logo {
+    display: none;
+    width: 65%;
+    height: 150%;
+    transform: translate(-25%, -15%);
+    @media screen and (min-width: 600px) {
+        display: flex;
+    }
+}
 
-#author-credit section {
-    height: 30px;
+#contact-text {
+    display: flex;
+    align-items: space-around;
+    justify-content: space-around;
+    flex-direction: column;
+
+    position: absolute;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    text-align: center;
+
+    &>p, &>h2 {
+        margin: 0;
+    }
+
+    @media screen and (min-width: 600px) {
+        width: 45%;
+        left: 50%;
+    }
+
+    h2 {
+        font-size: 38px;
+
+        @media screen and (min-width: 600px) {
+            font-size: 45px;
+        }
+
+        @media screen and (min-width: 800px) {
+            font-size: 54px;
+        }
+    }
+    p {
+        font-size: 15px;
+        letter-spacing: 2px;
+
+        @media screen and (min-width: 400px) {
+            font-size: 17px;
+        } 
+
+        @media screen and (min-width: 600px) {
+            font-size: 20px;
+        }
+
+        @media screen and (min-width: 800px) {
+            font-size: 24px;
+        }
+
+        @media screen and (min-width: 1100px) {
+            font-size: 28px;
+        }
+    }
+}
+
+#author-credit {
+    font-family: 'Lato', 'Poly', 'Arial';
+}
+
+#author-sec {
+    height: 100%;
+    text-align: center;
     margin-bottom: 0;
     padding-bottom: 0;
-    font-family: 'Lato', 'polyregular', 'Arial';
-    text-align: center;
 }
 
 @media screen and (min-width: 1100px) {

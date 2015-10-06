@@ -54,7 +54,6 @@ var main = function() {
         
         //Scrolling triggers for home, services, and about
         if ($(this).attr('id') == "nav-home") {
-            console.log('hi');
             $(window).scrollTo(0, {
                 duration: 1100, 
                 over: {top:-.01}
@@ -83,8 +82,22 @@ var main = function() {
         }
         
     });  
+
+    //resize contact section
+    resizeContact($("#contact-section"));
+    $(window).resize(function() {
+        window.setTimeout(function() {
+            resizeContact($("#contact-section"));
+        }, 1600);
+    });
     
 };
+
+function resizeContact(contactSection) {
+    var contWidth = parseInt(contactSection.css('width'));
+    console.log(contWidth + " " + contWidth/3.5*2);
+    contactSection.css('height', contWidth/3.5*2);
+}
 
 function clearActiveNav() {
     $('#nav-home').removeClass('active');
