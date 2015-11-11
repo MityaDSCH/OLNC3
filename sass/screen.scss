@@ -5,6 +5,7 @@ $background-border: 4%;
 $background-color: #fefcf7;
 $nav-height: 8vh;
 $body-width: 100%-$background-border*2;
+$footer-height: 80px;
 
 body {
     
@@ -19,6 +20,7 @@ body {
 #nav-wrap {
     
     position: fixed;
+    z-index: 999;
     height: calc(#{$nav-height} + 25px);
     width: $body-width;
     margin: 0 $background-border $background-border;
@@ -96,7 +98,7 @@ nav {
 
     &.hidden {
         
-        opacity: 0;
+        opacity: .1;
         @include transform(translateY(-$nav-height));
         
     }
@@ -167,8 +169,45 @@ nav {
 
 } 
 
+
+#pull-tab {
+
+    position: fixed;
+    bottom: 2%;
+    left: -10px;
+
+    height: 30px;
+    width: 36px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #333;
+    box-shadow: 0 0 3px 2px #666633;
+    opacity: .7;
+
+    transition: .5s;
+
+    &:hover {
+        opacity: 1;
+        left: 0;
+        transition: .5s;
+    }
+}
+
 em {
+    font-weight: 700;
     font-style: italic;
+}
+
+#body-container {
+    transform: translateY(0);
+    transition: transform .5s;
+}
+
+.shift-up {
+    transform: translateY(-$footer-height) !important;
 }
 
 .background {
@@ -329,6 +368,39 @@ section {
     @media screen and (min-width: 600px) {
         display: flex;
     }
+}
+
+footer {
+    position: fixed;
+    height: $footer-height;
+    width: 100%;
+    bottom: -$footer-height;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Lato';
+    font-weight: 300;
+
+    background-color: #333;
+    box-shadow: inset 0 7px 5px -1px rgba(0, 0, 0, .5);
+
+    transform: translateY(0);
+    transition: transform .5s;
+
+    p {
+        margin-right: 15px;
+    }
+
+    svg {
+        height: 35px;
+        width: auto;
+    }
+
 }
 
 #contact-text {

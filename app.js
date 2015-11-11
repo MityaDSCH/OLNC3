@@ -23,28 +23,35 @@ var main = function() {
         var contactHeight = $('#contact-section').offset().top - window.innerHeight/1.3;
         var lastUpdated = 'home';
 
+        //services is active
         if (wScroll > servicesHeight && wScroll < aboutHeight && lastUpdated != 'services') {
             clearActiveNav();
             $('#nav-services').addClass('active');
             lastUpdated = 'services';
+            removeCredit();
         }
         
+        //about is active
         else if (wScroll > aboutHeight && wScroll < contactHeight && lastUpdated != 'about') {
             clearActiveNav();
             $('#nav-about').addClass('active');
             lastUpdated = 'about';
+            removeCredit();
         }
 
+        //contact is active
         else if (wScroll > aboutHeight && lastUpdated != 'contact') {
             clearActiveNav();
             $('#nav-contact').addClass('active');
             lastUpdated = 'contact';
+            showCredit();
         }
         
         else {
             clearActiveNav();
             $('#nav-home').addClass('active');
             lastUpdated = 'home';
+            removeCredit();
         }
         
     });
@@ -83,6 +90,10 @@ var main = function() {
         
     });  
 
+    $("#pull-tab").click(function() {
+        toggleFooter();
+    });
+
     //resize contact section
     resizeContact($("#contact-section"));
     $(window).resize(function() {
@@ -95,7 +106,6 @@ var main = function() {
 
 function resizeContact(contactSection) {
     var contWidth = parseInt(contactSection.css('width'));
-    console.log(contWidth + " " + contWidth/3.5*2);
     contactSection.css('height', contWidth/3.5*2);
 }
 
@@ -104,6 +114,23 @@ function clearActiveNav() {
     $('#nav-services').removeClass('active');
     $('#nav-about').removeClass('active');
     $('#nav-contact').removeClass('active');
+}
+
+function showCredit() {
+    $('#pull-tab').removeClass('fadeOutLeft');
+    $('#pull-tab').addClass('fadeInLeft');
+}
+
+function removeCredit() {
+    $('#pull-tab').removeClass('fadeInLeft');
+    $('#pull-tab').addClass('fadeOutLeft');
+    $('footer').removeClass('shift-up');
+    $('#body-container').removeClass('shift-up');
+}
+
+function toggleFooter() {
+    $('footer').toggleClass('shift-up');
+    $('#body-container').toggleClass('shift-up');
 }
 
 $(document).ready(main);
