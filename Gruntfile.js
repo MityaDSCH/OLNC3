@@ -12,21 +12,55 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
     jshint: {
-      files: ['app.js'],
+      files: ['app.js']
     },
 
-    clean: {
+    clean: ['./temp', './dist'],
+
+    compass: {
       dist: {
-        files: [{
-          dot: true,
-          src: [
-            'dist/',
-            'temp'
-          ]
-        }]
+        options: {
+          sassDir: 'sass',
+          cssDir: 'stylesheets',
+          environment: 'production'
+        }
+      },
+      dev: {
+        options: {
+          sassDir: 'sass',
+          cssDir: 'stylesheets',
+          environment: 'development'
+        }
       }
     },
 
+    copy: {
+      target: {
+        files: [
+          {expand: true, src: ['stylesheets/**', 'images/**'], dest: 'dist/'},
+          {expand: true, src: ['index.html'], dest: 'dist/'},
+          {expand: true, src: ['app.min.js', 'scrollTo.js'], dest: 'dist/'},
+          {expand: true, src: ['animate.css'], dest: 'dist/'}
+        ]
+      }
+    },
+
+    connect: {
+      serve: {
+        options: {
+          port: 9000,
+          base: './',
+          keepalive: true
+        }
+      },
+      build: {
+        options: {
+          port: 9000,
+          base: './dist',
+          keepalive: true
+        }
+      }
+    }
 
   });
 
@@ -35,12 +69,16 @@ module.exports = function(grunt) {
     'grunt-contrib-clean',
     'grunt-contrib-uglify',
     'grunt-contrib-concat',
-    'grunt-contrib-jshint'
+    'grunt-contrib-jshint',
+    'grunt-contrib-compass',
+    'grunt-contrib-connect',
+    'grunt-contrib-copy'
   ].forEach(function(ele) {
     grunt.loadNpmTasks(ele);
-  })
+  });
 
-  // Default task.
-  grunt.registerTask('default', ['jshint', 'clean']);
+  // tasks.
+  grunt.registerTask('default', ['jshint', 'compass:dev', 'connect:serve']);
+  grunt.registerTask('build', ['jshint', 'clean', 'compass:dist', 'copy', 'connect:build']);
 
 };
