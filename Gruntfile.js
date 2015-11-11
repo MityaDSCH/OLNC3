@@ -11,28 +11,36 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
-    concat: {
+    jshint: {
+      files: ['app.js'],
+    },
+
+    clean: {
       dist: {
-        src: ['lib/<%= pkg.name %>.js'],
-        dest: 'dist/<%= pkg.name %>.js'
+        files: [{
+          dot: true,
+          src: [
+            'dist/',
+            'temp'
+          ]
+        }]
       }
     },
-    uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
-      dist: {
-        src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
-      }
-    }
+
+
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  [
+    'grunt-contrib-clean',
+    'grunt-contrib-uglify',
+    'grunt-contrib-concat',
+    'grunt-contrib-jshint'
+  ].forEach(function(ele) {
+    grunt.loadNpmTasks(ele);
+  })
 
   // Default task.
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'clean']);
 
 };

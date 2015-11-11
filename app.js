@@ -63,28 +63,28 @@ var main = function() {
         if ($(this).attr('id') == "nav-home") {
             $(window).scrollTo(0, {
                 duration: 1100, 
-                over: {top:-.01}
+                over: {top:-0.01}
             });
         }
 
         if ($(this).attr('id') == "nav-services") {
             $(window).scrollTo($('#services-section'), {
                 duration: 1100, 
-                over: {top:-.01}
+                over: {top:-0.01}
             });
         }
 
         if ($(this).attr('id') == "nav-about") {
             $(window).scrollTo($('#about-section'), {
                 duration: 1100, 
-                over: {top:-.01}
+                over: {top:-0.01}
             });
         }
 
         if ($(this).attr('id') == "nav-contact") {
             $(window).scrollTo($('#contact-section'), {
                 duration: 1100, 
-                over: {top:-.01}
+                over: {top:-0.01}
             });
         }
         
