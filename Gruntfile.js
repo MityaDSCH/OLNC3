@@ -96,7 +96,31 @@ module.exports = function(grunt) {
         files: ['sass/screen.scss'],
         tasks: ['compass:dist', 'cssmin', 'copy']
       } 
+    },
+
+    ftp_push: {
+      target: {
+        options: {
+          authKey: "key1",
+          host: "oudinglegalnurse.com",
+          dest: "./",
+          port: 21
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'dist/',
+            src: [
+              "images/*",
+              "stylesheets/**/*",
+              "app.min.js",
+              "index.html"
+            ]
+          }
+        ]
+      }
     }
+  
 
   });
 
@@ -110,12 +134,14 @@ module.exports = function(grunt) {
     'grunt-contrib-copy',
     'grunt-contrib-cssmin',
     'grunt-contrib-watch',
-    'grunt-contrib-htmlmin'
+    'grunt-contrib-htmlmin',
+    'grunt-ftp-push'
   ].forEach(function(ele) {
     grunt.loadNpmTasks(ele);
   });
 
   // tasks.
   grunt.registerTask('default', ['jshint', 'clean', 'uglify', 'compass:dist', 'cssmin', 'htmlmin', 'copy', 'connect:build', 'watch']);
+  grunt.registerTask('push', ['ftp_push']);
 
 };

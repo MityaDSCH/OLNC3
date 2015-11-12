@@ -3,6 +3,7 @@ app.min.js
 scrollTo.js
 bower_components/
 node_modules/
-.sass-cache/
-dist/
-temp/
+.sass-cache/**
+dist/**
+temp/**
+.ftpauth
