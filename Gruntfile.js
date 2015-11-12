@@ -45,6 +45,10 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1
+      },
       target: {
         files: {
           'dist/stylesheets/screen.css': ['temp/screen.css','bower_components/animate.css/animate.min.css']
@@ -52,11 +56,22 @@ module.exports = function(grunt) {
       }
     },
 
+    htmlmin: {                               
+      target: {                         
+        options: {                             
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {                                  
+          'dist/index.html': 'index.html'
+        }
+      }
+    },
+
     copy: {
       target: {
         files: [
-          {expand: true, cwd: './', src: ['stylesheets/**', 'images/**'], dest: 'dist/'},
-          {expand: true, cwd: './', src: ['index.html'], dest: './dist/'}
+          {expand: true, cwd: './', src: ['stylesheets/fonts/*', 'images/**'], dest: 'dist/'}
         ]
       }
     },
@@ -71,7 +86,7 @@ module.exports = function(grunt) {
       build: {
         options: {
           port: 9000,
-          base: './dist/'
+          base: 'dist'
         }
       }
     },
@@ -79,10 +94,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['sass/screen.scss'],
-        tasks: ['compass:dev'],
-        options: {
-          livereload: true
-        }
+        tasks: ['compass:dist', 'cssmin', 'copy']
       } 
     }
 
@@ -97,13 +109,13 @@ module.exports = function(grunt) {
     'grunt-contrib-connect',
     'grunt-contrib-copy',
     'grunt-contrib-cssmin',
-    'grunt-contrib-watch'
+    'grunt-contrib-watch',
+    'grunt-contrib-htmlmin'
   ].forEach(function(ele) {
     grunt.loadNpmTasks(ele);
   });
 
   // tasks.
-  grunt.registerTask('default', ['jshint', 'compass:dev', 'connect:serve', 'watch']);
-  grunt.registerTask('build', ['jshint', 'clean', 'uglify', 'compass:dist', 'cssmin', 'copy', 'connect:build']);
+  grunt.registerTask('default', ['jshint', 'clean', 'uglify', 'compass:dist', 'cssmin', 'htmlmin', 'copy', 'connect:build', 'watch']);
 
 };
