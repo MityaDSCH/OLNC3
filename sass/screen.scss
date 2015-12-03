@@ -8,23 +8,23 @@ $body-width: 100%-$background-border*2;
 $footer-height: 80px;
 
 body {
-    
+
     position: relative;
     z-index: -2;
     margin: 0;
     font-family: "Poly";
     background: #5f657a;
-    
+
 }
 
 #nav-wrap {
-    
+
     position: fixed;
     z-index: 999;
     height: calc(#{$nav-height} + 25px);
     width: $body-width;
     margin: 0 $background-border $background-border;
-    
+
     overflow: hidden;
 
     @media screen and (min-width: 800px) {
@@ -52,17 +52,17 @@ body {
         margin: 25vh 10vw;
         width: 10vw;
     }
-    
+
 }
 
 nav {
-    
+
     @include display-flex;
     @include justify-content(space-around);
     @include align-items(center);
-    
+
     opacity: 1;
-    
+
     position: fixed;
     z-index: 5;
     width: inherit;
@@ -72,7 +72,7 @@ nav {
     border-bottom: 3px solid #999;
     color: lightgray;
     font-family: 'Lato', sans-serif, 'Poly';
-    
+
     @include box-shadow(black 0 0px 25px 0);
 
     @include transition(1s);
@@ -80,47 +80,47 @@ nav {
     @include transition-timing-function(ease-in-out);
 
     a {
-        
+
         color: gray;
         text-decoration: none;
         @include transition(1s);
         margin: 0 0 5px;
-        
+
         &:hover {
             cursor: pointer;
         }
-        
+
         &.active {
             color: white;
         }
-        
+
     }
 
     &.hidden {
-        
+
         opacity: .1;
         @include transform(translateY(-$nav-height));
-        
+
     }
-    
+
     @media screen and (min-height: 300px) {
         height: 12vh;
     }
-    
+
     @media screen and (min-height: 450px) {
         height: 8vh;
     }
-    
+
     @media screen and (min-width: 600px) {
         font-size: 18px;
     }
-    
+
     @media screen and (min-width: 600px) {
         font-size: 20px;
     }
-    
+
     @media screen and (min-width: 1100px) {
-        
+
         background: none;
         border: none;
         height: 50%;
@@ -128,46 +128,46 @@ nav {
         @include flex-wrap(wrap);
         @include flex-direction(column);
         @include box-shadow(0 0 0 0);
-        
-        
+
+
         a {
             color: black;
             width: 75%;
-            
-            
+
+
             &:hover {
-                @include transform(translateX(.5vw));
+                color: #444;
             }
-            
+
             &.active{
                 color: white;
             }
-            
+
         }
-        
+
         &:after{
-          content:""; 
-          background: black; 
-          position: absolute; 
-          bottom: 0; 
+          content:"";
+          background: black;
+          position: absolute;
+          bottom: 0;
           left: 35%;
           width: 30%;
           height: 1px;
         }
-        
+
         &:before{
-          content:""; 
-          background: black; 
-          position: absolute; 
-          top: 0; 
+          content:"";
+          background: black;
+          position: absolute;
+          top: 0;
           left: 35%;
           width: 30%;
           height: 1px;
         }
-        
+
     }
 
-} 
+}
 
 
 #pull-tab {
@@ -214,133 +214,133 @@ em {
 
     position: relative;
     z-index: -2;
-    
+
     background: $background-color;
     margin: 0 $background-border;
-    
+
     width: $body-width;
-    
+
     @include box-shadow(black 0 0 25px 5px);
     @include transition(1.5s);
-    
+
     @media screen and (min-width: 800px) {
         width: 86%;
         margin: 0 7%;
     }
-    
+
     @media screen and (min-width: 900px) {
         width: 80%;
         margin: 0 10%;
     }
-    
+
     @media screen and (min-width: 1000px) {
         width: 75%;
         margin: 0 11%;
     }
-    
+
     @media screen and (min-width: 1100px) {
         width: 70%;
         margin: 0 5% 0 auto;
     }
-    
+
     @media screen and (min-width: 1300px) {
         width: 60%;
         margin: 0 10% 0 auto;
     }
-    
+
     &:first-of-type {
         -webkit-margin-top: 0;
     }
-   
+
 }
-  
+
 header {
-    
+
     margin: auto;
     padding-top: 3vh;
     width: inherit;
     img {
-        
+
         display: block;
         width: 100%;
-        
+
     }
 
 }
 
 section {
-    
+
     position: relative;
     z-index: -2;
-    
+
     margin: 5vh auto auto;
     padding: 0 0 5vh;
     width: $body-width;
     text-align: justify;
     font-size: 14px;
     line-height: 180%;
-    p {margin: 0 0;}   
-    
+    p {margin: 0 0;}
+
     @media screen and (min-height: 350px) {
         font-size: 16px;
     }
-    
+
     @media screen and (min-width: 600px) {
         font-size: 18px;
     }
-    
+
     @media screen and (min-width: 800px) {
         font-size: 20px;
     }
-    
+
     @media screen and (min-width: 1100px) {
         width: 80%;
     }
-    
+
 }
 
 .divider {
-    
+
     width: 160px;
     margin: 5vh auto 4vh;
-    
-} 
+
+}
 
 .header {
-    
+
     font-family: 'Lato', sans-serif, 'Poly';
     font-size: 36px;
     padding-top: 3vh;
     text-align: center;
-    
+
 }
 
 .serv-text {
-    
+
     text-align: left;
-    
+
     p {
-        
+
         margin-bottom: 2vh;
         padding-top: 2vh;
     }
-    
+
     hr {
-        
+
         position: relative;
         opacity: .5;
         border: 0;
         height: 1px;
         z-index: -1;
         @include background-image(linear-gradient(to right, #DDD, #333, #DDD));
-        
+
     }
-    
+
 }
 
 .organizations {
     padding: 0 5vw;
-    
+
     li {
         margin: 1.7em 0;
         text-align: justify;
@@ -350,7 +350,7 @@ section {
     #naclnc-logo {
         max-width: 100%;
     }
-    
+
 }
 
 #contact-section {
@@ -448,7 +448,7 @@ footer {
 
         @media screen and (min-width: 400px) {
             font-size: 17px;
-        } 
+        }
 
         @media screen and (min-width: 600px) {
             font-size: 20px;
@@ -472,21 +472,19 @@ footer {
 
     /* Track */
     ::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
         -webkit-border-radius: 10px;
         border-radius: 10px;
-    } 
+    }
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
         -webkit-border-radius: 10px;
         border-radius: 10px;
-        background: rgba(78,83,100,0.8); 
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+        background: rgba(78,83,100,0.8);
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
     }
     // ::-webkit-scrollbar-thumb:window-inactive {
-    //     background: rgba(255,0,0,0.4); 
+    //     background: rgba(255,0,0,0.4);
     // }
 }
-
-    
