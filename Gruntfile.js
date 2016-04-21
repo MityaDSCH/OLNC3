@@ -14,7 +14,7 @@ module.exports = function(grunt) {
       files: ['app.js']
     },
 
-    clean: ['./temp/', './dist/'],
+    clean: ['./temp/', './dist/', './app.min.js', './screen.css'],
 
     uglify: {
       options: {
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'dist/app.min.js': ['app.js']
+          'app.min.js': ['app.js']
         }
       }
     },
@@ -51,18 +51,18 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'dist/stylesheets/screen.css': ['temp/screen.css','bower_components/animate.css/animate.min.css']
+          'screen.css': ['temp/screen.css','bower_components/animate.css/animate.min.css']
         }
       }
     },
 
-    htmlmin: {                               
-      target: {                         
-        options: {                             
+    htmlmin: {
+      target: {
+        options: {
           removeComments: true,
           collapseWhitespace: true
         },
-        files: {                                  
+        files: {
           'dist/index.html': 'index.html'
         }
       }
@@ -95,7 +95,7 @@ module.exports = function(grunt) {
       css: {
         files: ['sass/screen.scss'],
         tasks: ['compass:dist', 'cssmin', 'copy']
-      } 
+      }
     },
 
     ftp_push: {
@@ -120,7 +120,7 @@ module.exports = function(grunt) {
         ]
       }
     }
-  
+
 
   });
 
@@ -142,6 +142,7 @@ module.exports = function(grunt) {
 
   // tasks.
   grunt.registerTask('default', ['jshint', 'clean', 'uglify', 'compass:dist', 'cssmin', 'htmlmin', 'copy', 'connect:build', 'watch']);
+  grunt.registerTask('build', ['jshint', 'clean', 'uglify', 'compass:dist', 'cssmin', 'htmlmin', 'copy']);
   grunt.registerTask('push', ['ftp_push']);
 
 };
