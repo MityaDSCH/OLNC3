@@ -2,7 +2,6 @@ animate.css
 scrollTo.js
 bower_components/
 node_modules/
-.sass-cache/**
-dist/**
-temp/**
-.ftpauth
+.sass-cache/
+dist/
+temp/
